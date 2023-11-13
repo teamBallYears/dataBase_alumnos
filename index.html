@@ -1,13 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>dataBase_alumnos</title>
-</head>
-<body id="body">
-    
+  </head>
+  <body>
+    <section class="sectionEscuela" id="sectionEscuela">
+        <h2>Escuela</h2>
+        <section class="funcionesEscuela">
+            <div class="seleccionarGrupo">
+                <h3>Seleccionar</h3>
+                <label for="opcionesGrupos">Grupos</label>
+                <select name="opcionesGrupos" id="opcionesGrupos" class="p-input">
+                    <!-- <option value="opcion1">Opción 1</option> -->
+                </select>
+                <button class="p-button" id="btn_seleccionarGrupo">Seleccionar</button>
+            </div>
+            <div class="crearGrupo">
+                <h3>Crear</h3>
+                <form action="">
+                    <label for="">Crear Grupo</label>
+                    <input type="text" class="p-input" id="input_nombreGrupo">
+                </form>
+                <button class="p-button" id="btn_anadirGrupo">Añadir</button>
+            </div>
+        </section>
+        <hr>
+        <section class="sectionGrupo" id="sectionGrupo">
+            <h2 id="nombreGrupo">Grupo</h2>
+            <div class="container">
+                <section class="tablaAlumnos">
+                    <div class="tablaAlumno_header">
+                        <ul>
+                            <li>#</li>
+                            <li>Nombre</li>
+                            <li>Apellido</li>
+                            <li>Promedio</li>
+                            <li>Borrar</li>
+                        </ul>
+                    </div>
+                    <hr>
+                    
+                </section>
+                <section class="funcionesGrupo">
+                    <h3>Promedio Grupal</h3>
+                    <p id="promedioGrupal">10</p>
+                    <h3>Mejor Promedio</h3>
+                    <p id="mejorPromedio">10</p>
+                    <button id="btn_nuevoAlumno" class="p-button">Nuevo Alumno</button>
+                    <button id="eliminarGrupo" class="p-button">Eliminar Grupo</button>
+                </section>
+            </div>
+        </section>
+        <hr>
+        <section class="sectionNuevoAlumno" id="sectionNuevoAlumno">
+            <h2>Nuevo Alumno</h2>
+            <h3>Datos Alumno</h3>
+            <form action="" id="datosAlumno">
+                <label for="input_nombreNuevoAlumno">Nombre</label>
+                <input type="text" class="p-input" id="input_nombreNuevoAlumno">
+                <label for="input_apellidoNuevoAlumno">Apellido</label>
+                <input type="text" class="p-input" id="input_apellidoNuevoAlumno">
+            </form>
+            <h3>Clases Alumnos</h3>
+            <form action="" id="form_clasesAlumnos" class="form_clasesAlumnos">
+            </form>
+            <div class="funcionesNuevoAlumno">
+                <button class="p-button" id="btn_anadirClase">Añadir Clase</button>
+                <button class="p-button" id="btn_guardarAlumno">Guardar Alumno</button>
+                <button class="p-button">Cancelar</button>
+            </div>
+        </section>
+    </section>
     <script src="script.js"></script>
-</body>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  </body>
 </html>
