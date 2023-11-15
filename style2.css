@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: sans-serif;
+}
+
+body{
+    padding: 2rem 10rem;
+}
+
+hr{
+    margin: 4rem 0;
+}
+
+section{
+    margin: 2rem 0;
+}
+
+h2{
+    margin-bottom: 3rem;
+}
+button{
+    padding: 1rem;
+    background-color: #121212;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin-top: 1rem;
+}
+input{
+    padding: 10px;
+}
+
+
+.anadirEstudiante form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+.anadirEstudiante form input{
+    width: 200px;
+}
+
+.eliminarEstudiante form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+.eliminarEstudiante form input{
+    width: 200px;
+}
+
+.addel_Grupo{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="addel_Grupo">
+        <section class="anadirGrupo">
+            <h2>Añadir Grupo</h2>
+            <form action="" id="formAnadirGrupo">
+                <label for="nombreGrupo">Nombre:</label>
+                <input type="text" id="nombreGrupo"><br>
+            </form>
+            <button id="anadirGrupo">Añadir Grupo</button>
+        </section>
+        <section class="eliminarGrupo">
+            <h2>Eliminar Grupo</h2>
+            <form action="" id="formEliminarGrupo">
+                <label for="eliminar_nombreGrupo">Nombre:</label>
+                <input type="text" id="eliminar_nombreGrupo"><br>
+            </form>
+            <button id="eliminarGrupo">Eliminar Grupo</button>
+        </section>
+    </section>
+    
+
+    <hr>
+
+    <section class="mostrarGrupo">
+        <h2>Mostrar Grupo</h2>
+        <form action="">
+            <label for="mostrar_nombreGrupo">Nombre Grupo</label>
+            <input type="text" id="mostrar_nombreGrupo">
+        </form>
+        <button id="mostrarGrupo">Mostrar Grupo</button>
+        <div id="zonaMostrarGrupo"></div>
+    </section>
+
+    <hr>
+
+    <section class="anadirEstudiante">
+        <h2>Añadir Estudiante</h2>
+        <form action="" id="formAnadirEstudiante">
+            <label for="idEstudiante">ID</label>
+            <input type="text" id="idEstudiante">
+            <label for="grupoEstudiante">Grupo</label>
+            <input type="text" id="grupoEstudiante">
+            <label for="nombreEstudiante">Nombre</label>
+            <input type="text" id="nombreEstudiante">
+            <label for="apellidoEstudiante">Apellido</label>
+            <input type="text" id="apellidoEstudiante">
+        </form>
+        <button id="anadirEstudiante">Añadir Estudiante</button>
+    </section>
+
+    <section class="eliminarEstudiante">
+        <h2>Eliminar Estudiante</h2>
+        <form action="">
+            <label for="eliminar_grupoEstudiante">Grupo</label>
+            <input type="text" id="eliminar_grupoEstudiante">
+            <label for="eliminar_idEstudiante">ID</label>
+            <input type="text" id="eliminar_idEstudiante">
+        </form>
+        <button id="eliminarEstudiante">Eliminar Estudiante</button>
+    </section>
+
+    <hr>
+
+    <section class="anadirClase">
+        <h2>Añadir Clase a Estudiante</h2>
+        <form action="">
+            <label for="grupoClase">Grupo:</label>
+            <input type="text" id="grupoClase">
+            <label for="idEstudianteClase">Estudiante ID</label>
+            <input type="text" id="idEstudianteClase">
+            <label for="nombreClase">Clase</label>
+            <input type="text" id="nombreClase">
+            <label for="">Calificacion</label>
+            <input type="text" id="calificacionClase">
+        </form>
+        <button id="anadirClase">Añadir Clase</button>
+    </section>
+
+    <script src="script2.js"></script>
+</body>
+</html>
