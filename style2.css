@@ -40,22 +40,20 @@ button{
     margin-top: 1rem;
     margin-bottom: 2rem;
 }
-input{
+input,
+select{
     padding: 10px;
     border-radius: 5px;
     border: none;
     background-color: #efefef;
+    width: 200px;
 }
-
 
 .anadirEstudiante form{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     align-items: center;
-}
-.anadirEstudiante form input{
-    width: 200px;
 }
 
 .eliminarEstudiante form{
@@ -64,18 +62,12 @@ input{
     gap: 1rem;
     align-items: center;
 }
-.eliminarEstudiante form input{
-    width: 200px;
-}
 
 .buscarEstudiante form{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     align-items: center;
-}
-.buscarEstudiante form input{
-    width: 200px;
 }
 
 
@@ -148,4 +140,22 @@ input{
 
 .target hr{
     margin: 1rem 0;
+}
+
+#zonaMostrarGrupo{
+    width: 100%;
+}
+#zonaMostrarGrupo ul{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    list-style: none;
+}
+#zonaMostrarGrupo ul.header{
+    font-weight: bold;
+}
+#zonaMostrarGrupo ul li{
+    padding: 1rem 1rem;
+}
+#zonaMostrarGrupo > :nth-child(odd){
+    background-color: #efefef;
 }

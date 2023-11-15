@@ -7,7 +7,7 @@ class Escuela{
     anadirGrupo(nombre){
         let nuevoGrupo = new Grupo(nombre);
         this.grupos.push(nuevoGrupo);
-        console.log(this.grupos);
+        this.actualizarListasGrupos(this.grupos);
     }
 
     eliminarGrupo(nombreGrupo){
@@ -20,24 +20,86 @@ class Escuela{
             i++;
         });
 
-        console.log(this.grupos);
+        this.actualizarListasGrupos(this.grupos);
+
+    }
+
+    actualizarListasGrupos(grupos){
+        let selectEliminarGrupo = document.getElementById("eliminar_nombreGrupo");
+        let selectMostrarGrupo = document.getElementById("mostrar_nombreGrupo");
+        let selectAnadirEstudiante = document.getElementById("grupoEstudiante");
+        let selectEliminarEstudiante = document.getElementById("eliminar_grupoEstudiante");
+        let selectBuscarEstudiante = document.getElementById("buscarGrupoEstudiante");
+        let selectAnadirClase = document.getElementById("grupoClase");
+    
+        selectEliminarGrupo.innerHTML = "";
+        selectMostrarGrupo.innerHTML = "";
+        selectAnadirEstudiante.innerHTML = "";
+        selectEliminarEstudiante.innerHTML = "";
+        selectBuscarEstudiante.innerHTML = "";
+        selectAnadirClase.innerHTML = "";
+
+        let elementosSelect = [];
+        elementosSelect.push(selectEliminarGrupo);
+        elementosSelect.push(selectMostrarGrupo);
+        elementosSelect.push(selectAnadirEstudiante);
+        elementosSelect.push(selectEliminarEstudiante);
+        elementosSelect.push(selectBuscarEstudiante);
+        elementosSelect.push(selectAnadirClase);
+
+        elementosSelect.forEach(elemento => {
+            let itemNullOption = document.createElement("option");
+            itemNullOption.setAttribute("value", `null`);
+            itemNullOption.textContent = `(---)`;
+            elemento.appendChild(itemNullOption);
+        })
+
+        elementosSelect.forEach(elemento => {
+            grupos.forEach(grupo => {
+                let itemOptionGrupo = document.createElement("option");
+                itemOptionGrupo.setAttribute("value", `${grupo.nombre}`);
+                itemOptionGrupo.textContent = `${grupo.nombre}`;
+                elemento.appendChild(itemOptionGrupo);
+            })
+        })
     }
 
     mostrarGrupo(grupo){
         let zonaMostrarGrupo = document.getElementById("zonaMostrarGrupo");
         zonaMostrarGrupo.innerHTML = "";
+
+        /*
+        <ul class="row-table">+
+            <li>${estudiante.id}</li>
+            <li>${estudiante.nombre}</li>
+            <li>${estudiante.apellido}</li>
+            <li>${estudiante.grupo}</li>
+            <li>${estudiante.getPromedio()}</li>
+        </ul>
+        */
         
+        let headerTable = document.createElement("ul");
+        headerTable.setAttribute("class", "header");
+        headerTable.innerHTML = `
+            <li>ID</li>
+            <li>Nombre</li>
+            <li>Apellido</li>
+            <li>Grupo</li>
+            <li>Promedio</li>
+        `
+        zonaMostrarGrupo.appendChild(headerTable);
+
         grupo.estudiantes.forEach(estudiante => {
-            let nuevoEstudianteInfo = document.createElement("div");
-            nuevoEstudianteInfo.textContent = `
-            Id: ${estudiante.id} || 
-            Nombre: ${estudiante.nombre} || 
-            Apellido: ${estudiante.apellido} || 
-            Grupo: ${estudiante.grupo} ||
-            Promedio: ${estudiante.getPromedio()};
+            let rowInfoEstudiante = document.createElement("ul");
+            rowInfoEstudiante.innerHTML = `
+            <li>${estudiante.id}</li>
+            <li>${estudiante.nombre}</li>
+            <li>${estudiante.apellido}</li>
+            <li>${estudiante.grupo}</li>
+            <li>${estudiante.getPromedio()}</li>
             `
 
-            zonaMostrarGrupo.appendChild(nuevoEstudianteInfo);
+            zonaMostrarGrupo.appendChild(rowInfoEstudiante);
         })
     }
 
@@ -62,7 +124,7 @@ class Grupo{
     anadirEstudiante(id, nombre, apellido, grupo){
         let nuevoEstudiante = new Estudiante(id,nombre, apellido, grupo);
         this.estudiantes.push(nuevoEstudiante);
-        console.log(this.estudiantes);
+        this.actualizarListasEstudiantes(this.estudiantes);
     }
 
     eliminarEstudiante(idEstudiante){
@@ -76,6 +138,18 @@ class Grupo{
         });
 
         console.log(this.estudiantes);
+    }
+
+    actualizarListasEstudiantes(selectActualizable){
+        selectActualizable.innerHTML = "";
+
+        this.estudiantes.forEach(estudiante => {
+            let itemOptionEstudiante = document.createElement("option");
+            itemOptionEstudiante.setAttribute("value", `${estudiante.id}`);
+            itemOptionEstudiante.textContent = `${estudiante.id} - ${estudiante.nombre} ${estudiante.apellido}`;
+            selectActualizable.appendChild(itemOptionEstudiante);
+        })
+
     }
 }
 
@@ -129,7 +203,7 @@ class Estudiante{
         })
         
         let promedioEstudiante = document.createElement("li");
-        promedioEstudiante.textContent = `<div class="eLIzquierda">Promedio:</div><div class="eLDerecha">${estudiante.getPromedio()}</div>}`;
+        promedioEstudiante.innerHTML = `<div class="eLIzquierda">Promedio:</div><div class="eLDerecha">${estudiante.getPromedio()}</div>`;
         clasesEstudiante.appendChild(promedioEstudiante);
     }
 
@@ -146,8 +220,10 @@ const miEscuela = new Escuela("miEscuela");
 
 let btnAnadirGrupo = document.getElementById("anadirGrupo");
 btnAnadirGrupo.addEventListener("click", () => {
-    let nombreGrupo = document.getElementById("nombreGrupo").value;
-    miEscuela.anadirGrupo(nombreGrupo);
+    let nombreGrupo = document.getElementById("nombreGrupo");
+    miEscuela.anadirGrupo(nombreGrupo.value);
+    nombreGrupo.value = "";
+    
 })
 
 let btnEliminarGrupo = document.getElementById("eliminarGrupo");
@@ -158,16 +234,22 @@ btnEliminarGrupo.addEventListener("click", () => {
 
 let btnAnadirEstudiante = document.getElementById("anadirEstudiante");
 btnAnadirEstudiante.addEventListener("click", () => {
-    let idEstudiante = document.getElementById("idEstudiante").value;
-    let grupoEstudiante = document.getElementById("grupoEstudiante").value;
-    let nombreEstudiante = document.getElementById("nombreEstudiante").value;
-    let apellidoEstudiante = document.getElementById("apellidoEstudiante").value;
+
+    let idEstudiante = document.getElementById("idEstudiante");
+    let grupoEstudiante = document.getElementById("grupoEstudiante");
+    let nombreEstudiante = document.getElementById("nombreEstudiante");
+    let apellidoEstudiante = document.getElementById("apellidoEstudiante");
 
     miEscuela.grupos.forEach(grupo => {
-        if(grupo.nombre == grupoEstudiante){
-            grupo.anadirEstudiante(idEstudiante, nombreEstudiante, apellidoEstudiante, grupoEstudiante);
+        if(grupo.nombre == grupoEstudiante.value){
+            grupo.anadirEstudiante(idEstudiante.value, nombreEstudiante.value, apellidoEstudiante.value, grupoEstudiante.value);
         }
     })
+
+    idEstudiante.value = "";
+    grupoEstudiante.value = "";
+    nombreEstudiante.value = "";
+    apellidoEstudiante.value = "";
 })
 
 let btnEliminarEstudiante = document.getElementById("eliminarEstudiante");
@@ -228,6 +310,42 @@ btnAnadirClase.addEventListener("click", () => {
                     estudiante.anadirClase(nombreClase, calificacionClase);
                 }
             })
+        }
+    })
+})
+
+let selectGrupoClase = document.getElementById("grupoClase");
+selectGrupoClase.addEventListener("change", () => {
+    let grupoSeleccionado = document.getElementById("grupoClase").value;
+    let selectActualizable = document.getElementById("idEstudianteClase");
+
+    miEscuela.grupos.forEach(grupo => {
+        if(grupo.nombre == grupoSeleccionado){
+            grupo.actualizarListasEstudiantes(selectActualizable);
+        }
+    })
+})
+
+let buscarGrupoEstudiante = document.getElementById("buscarGrupoEstudiante");
+buscarGrupoEstudiante.addEventListener("change", () => {
+    let grupoSeleccionado = document.getElementById("buscarGrupoEstudiante").value;
+    let selectActualizable = document.getElementById("buscarIdEstudiante");
+
+    miEscuela.grupos.forEach(grupo => {
+        if(grupo.nombre == grupoSeleccionado){
+            grupo.actualizarListasEstudiantes(selectActualizable);
+        }
+    })
+})
+
+let eliminar_grupoEstudiante = document.getElementById("eliminar_grupoEstudiante");
+eliminar_grupoEstudiante.addEventListener("change", () => {
+    let grupoSeleccionado = document.getElementById("eliminar_grupoEstudiante").value;
+    let selectActualizable = document.getElementById("eliminar_idEstudiante");
+
+    miEscuela.grupos.forEach(grupo => {
+        if(grupo.nombre == grupoSeleccionado){
+            grupo.actualizarListasEstudiantes(selectActualizable);
         }
     })
 })

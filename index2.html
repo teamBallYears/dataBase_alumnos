@@ -23,7 +23,7 @@
             <hr>
             <form action="" id="formEliminarGrupo">
                 <label for="eliminar_nombreGrupo">Grupo</label>
-                <input type="text" id="eliminar_nombreGrupo"><br>
+                <select name="" id="eliminar_nombreGrupo"></select>
             </form>
             <button id="eliminarGrupo">Eliminar Grupo</button>
             <p id="mensajeGrupoEliminado"></p>
@@ -38,11 +38,21 @@
         <hr>
         <form action="">
             <label for="mostrar_nombreGrupo">Grupo</label>
-            <input type="text" id="mostrar_nombreGrupo">
+            <!-- <input type="text" id="mostrar_nombreGrupo"> -->
+            <select name="" id="mostrar_nombreGrupo"></select>
         </form>
+
         <button id="mostrarGrupo">Mostrar Grupo</button>
         <p id="mensajeGrupoMostrado"></p>
-        <div id="zonaMostrarGrupo"></div>
+        <div id="zonaMostrarGrupo">
+            <ul class="header">
+                <li>ID</li>
+                <li>Nombre</li>
+                <li>Apellido</li>
+                <li>Grupo</li>
+                <li>Promedio</li>
+            </ul>
+        </div>
     </section>
 
     <hr>
@@ -54,7 +64,7 @@
             <label for="idEstudiante">ID</label>
             <input type="text" id="idEstudiante">
             <label for="grupoEstudiante">Grupo</label>
-            <input type="text" id="grupoEstudiante">
+            <select name="" id="grupoEstudiante"></select>
             <label for="nombreEstudiante">Nombre</label>
             <input type="text" id="nombreEstudiante">
             <label for="apellidoEstudiante">Apellido</label>
@@ -69,9 +79,9 @@
         <hr>
         <form action="">
             <label for="eliminar_grupoEstudiante">Grupo</label>
-            <input type="text" id="eliminar_grupoEstudiante">
+            <select name="" id="eliminar_grupoEstudiante"></select>
             <label for="eliminar_idEstudiante">ID</label>
-            <input type="text" id="eliminar_idEstudiante">
+            <select type="text" id="eliminar_idEstudiante"></select>
         </form>
         <button id="eliminarEstudiante">Eliminar Estudiante</button>
         <p id="mensajeEstudianteEliminado"></p>
@@ -82,9 +92,9 @@
         <hr>
         <form action="">
             <label for="buscarGrupoEstudiante">Grupo</label>
-            <input type="text" id="buscarGrupoEstudiante">
+            <select name="" id="buscarGrupoEstudiante"></select>
             <label for="buscarIdEstudiante">ID</label>
-            <input type="text" id="buscarIdEstudiante">
+            <select type="text" id="buscarIdEstudiante"></select>
         </form>
         <button id="buscarEstudiante">Buscar Estudiante</button>
         <p id="mensajeEstudianteBuscado"></p>
@@ -104,11 +114,22 @@
         <hr>
         <form action="">
             <label for="grupoClase">Grupo:</label>
-            <input type="text" id="grupoClase">
+            <select name="" id="grupoClase"></select>
             <label for="idEstudianteClase">Estudiante ID</label>
-            <input type="text" id="idEstudianteClase">
+            <select type="text" id="idEstudianteClase"></select>
             <label for="nombreClase">Clase</label>
-            <input type="text" id="nombreClase">
+            <select type="text" id="nombreClase">
+                <option value="Español">Español</option>
+                <option value="Matemáticas">Matemáticas</option>
+                <option value="Ciencias Naturales">Ciencias Naturales</option>
+                <option value="Ciencias Sociales">Ciencias Sociales</option>
+                <option value="Inglés">Inglés</option>
+                <option value="Computación">Computación</option>
+                <option value="Historia">Historia</option>
+                <option value="Geografía">Geografía</option>
+                <option value="Artes">Artes</option>
+                <option value="Educación Física">Educación Física</option>
+            </select>
             <label for="">Calificacion</label>
             <input type="text" id="calificacionClase">
         </form>
