@@ -40,6 +40,16 @@ class Escuela{
             zonaMostrarGrupo.appendChild(nuevoEstudianteInfo);
         })
     }
+
+    mostrarGrupoApellido(){
+
+    }
+    mostrarGrupoNombre(){
+
+    }
+    mostrarGrupoPromedio(){
+        
+    }
 }
 
 class Grupo{
@@ -94,6 +104,35 @@ class Estudiante{
         return promedio;
     }
 
+    mostrarEstudiante(estudiante){
+        let idEstudiante = document.getElementById("mostrarIdEstudiante");
+        let nombreEstudiante = document.getElementById("mostrarNombreEstudiante");
+        let apellidoEstudiante = document.getElementById("mostrarApellidoEstudiante");
+        let grupoEstudiante = document.getElementById("mostrarGrupoEstudiante");
+        let clasesEstudiante = document.getElementById("mostrarClasesEstudiante");
+
+        idEstudiante.innerHTML = "";
+        nombreEstudiante.innerHTML = "";
+        apellidoEstudiante.innerHTML = "";
+        grupoEstudiante.innerHTML = "";
+        clasesEstudiante.innerHTML = "";
+
+        idEstudiante.textContent = `${estudiante.id}`;
+        nombreEstudiante.textContent = `${estudiante.nombre}`;
+        apellidoEstudiante.textContent = `${estudiante.apellido}`;
+        grupoEstudiante.textContent = `${estudiante.grupo}`;
+
+        estudiante.clases.forEach(clase => {
+            let itemClase = document.createElement("li");
+            itemClase.innerHTML = `<div class="eLIzquierda">${clase.nombre}: </div><div class="eLDerecha">${clase.calificacion}</div>`
+            clasesEstudiante.appendChild(itemClase);
+        })
+        
+        let promedioEstudiante = document.createElement("li");
+        promedioEstudiante.textContent = `<div class="eLIzquierda">Promedio:</div><div class="eLDerecha">${estudiante.getPromedio()}</div>}`;
+        clasesEstudiante.appendChild(promedioEstudiante);
+    }
+
 }
 
 class Clase{
@@ -143,10 +182,30 @@ btnEliminarEstudiante.addEventListener("click", () => {
     })
 })
 
+let btnBuscarEstudiante = document.getElementById("buscarEstudiante");
+btnBuscarEstudiante.addEventListener("click", () => {
+    let grupoEstudiante = document.getElementById("buscarGrupoEstudiante").value;
+    let idEstudiante = document.getElementById("buscarIdEstudiante").value;
+
+    miEscuela.grupos.forEach(grupo => {
+        if(grupo.nombre == grupoEstudiante){
+            console.log("encontré el Grupo")
+            grupo.estudiantes.forEach(estudiante => {
+                if(estudiante.id == idEstudiante){
+                    console.log("encontré el Estudiante");
+                    estudiante.mostrarEstudiante(estudiante);
+                }
+            })
+        }
+    });
+})
+
 let btnMostrarGrupo = document.getElementById("mostrarGrupo");
 btnMostrarGrupo.addEventListener("click", () => {
     let nombreGrupo = document.getElementById("mostrar_nombreGrupo").value;
     
+    let zonaMostrarGrupo = document.getElementById("zonaMostrarGrupo");
+    zonaMostrarGrupo.innerHTML = "";
 
     miEscuela.grupos.forEach(grupo => {
         if(grupo.nombre == nombreGrupo){

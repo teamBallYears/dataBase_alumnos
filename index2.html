@@ -8,41 +8,48 @@
 </head>
 <body>
     <section class="addel_Grupo">
-        <section class="anadirGrupo">
+        <section class="anadirGrupo target">
             <h2>Añadir Grupo</h2>
+            <hr>
             <form action="" id="formAnadirGrupo">
-                <label for="nombreGrupo">Nombre:</label>
+                <label for="nombreGrupo">Grupo</label>
                 <input type="text" id="nombreGrupo"><br>
             </form>
             <button id="anadirGrupo">Añadir Grupo</button>
+            <p id="mensajeGrupoAnadido"></p>
         </section>
-        <section class="eliminarGrupo">
+        <section class="eliminarGrupo target">
             <h2>Eliminar Grupo</h2>
+            <hr>
             <form action="" id="formEliminarGrupo">
-                <label for="eliminar_nombreGrupo">Nombre:</label>
+                <label for="eliminar_nombreGrupo">Grupo</label>
                 <input type="text" id="eliminar_nombreGrupo"><br>
             </form>
             <button id="eliminarGrupo">Eliminar Grupo</button>
+            <p id="mensajeGrupoEliminado"></p>
         </section>
     </section>
     
 
     <hr>
 
-    <section class="mostrarGrupo">
+    <section class="mostrarGrupo target">
         <h2>Mostrar Grupo</h2>
+        <hr>
         <form action="">
-            <label for="mostrar_nombreGrupo">Nombre Grupo</label>
+            <label for="mostrar_nombreGrupo">Grupo</label>
             <input type="text" id="mostrar_nombreGrupo">
         </form>
         <button id="mostrarGrupo">Mostrar Grupo</button>
+        <p id="mensajeGrupoMostrado"></p>
         <div id="zonaMostrarGrupo"></div>
     </section>
 
     <hr>
 
-    <section class="anadirEstudiante">
+    <section class="anadirEstudiante target">
         <h2>Añadir Estudiante</h2>
+        <hr>
         <form action="" id="formAnadirEstudiante">
             <label for="idEstudiante">ID</label>
             <input type="text" id="idEstudiante">
@@ -54,10 +61,12 @@
             <input type="text" id="apellidoEstudiante">
         </form>
         <button id="anadirEstudiante">Añadir Estudiante</button>
+        <p id="mensajeAlumnoAnadido"></p>
     </section>
 
-    <section class="eliminarEstudiante">
+    <section class="eliminarEstudiante target">
         <h2>Eliminar Estudiante</h2>
+        <hr>
         <form action="">
             <label for="eliminar_grupoEstudiante">Grupo</label>
             <input type="text" id="eliminar_grupoEstudiante">
@@ -65,12 +74,34 @@
             <input type="text" id="eliminar_idEstudiante">
         </form>
         <button id="eliminarEstudiante">Eliminar Estudiante</button>
+        <p id="mensajeEstudianteEliminado"></p>
+    </section>
+
+    <section class="buscarEstudiante target">
+        <h2>Buscar Estudiante</h2>
+        <hr>
+        <form action="">
+            <label for="buscarGrupoEstudiante">Grupo</label>
+            <input type="text" id="buscarGrupoEstudiante">
+            <label for="buscarIdEstudiante">ID</label>
+            <input type="text" id="buscarIdEstudiante">
+        </form>
+        <button id="buscarEstudiante">Buscar Estudiante</button>
+        <p id="mensajeEstudianteBuscado"></p>
+        <div class="zonaMostrarEstudiante">
+            <p>Id:</p><p id="mostrarIdEstudiante">null</p>
+            <p>Nombre: </p><p id="mostrarNombreEstudiante">null</p>
+            <p>Apellido: </p><p id="mostrarApellidoEstudiante">null</p>
+            <p>Grupo: </p><p id="mostrarGrupoEstudiante">null</p>
+            <p>Clases: </p><ul id="mostrarClasesEstudiante">null</ul>
+        </div>
     </section>
 
     <hr>
 
-    <section class="anadirClase">
+    <section class="anadirClase target">
         <h2>Añadir Clase a Estudiante</h2>
+        <hr>
         <form action="">
             <label for="grupoClase">Grupo:</label>
             <input type="text" id="grupoClase">
@@ -82,8 +113,8 @@
             <input type="text" id="calificacionClase">
         </form>
         <button id="anadirClase">Añadir Clase</button>
+        <p id="mensajeClaseAnadida"></p>
     </section>
-
     <script src="script2.js"></script>
 </body>
 </html>

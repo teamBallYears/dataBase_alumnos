@@ -8,8 +8,19 @@ html{
     font-family: sans-serif;
 }
 
+button{
+    cursor: pointer;
+}
+button:hover{
+    background-color: #101010;
+}
+button:active{
+    background-color: #c85050;
+}
+
 body{
     padding: 2rem 10rem;
+    background-color: #dfdfdf;
 }
 
 hr{
@@ -20,19 +31,20 @@ section{
     margin: 2rem 0;
 }
 
-h2{
-    margin-bottom: 3rem;
-}
 button{
     padding: 1rem;
-    background-color: #121212;
+    background-color: #0c4d17;
     color: white;
     border-radius: 5px;
     border: none;
     margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 input{
     padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #efefef;
 }
 
 
@@ -40,6 +52,7 @@ input{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+    align-items: center;
 }
 .anadirEstudiante form input{
     width: 200px;
@@ -49,12 +62,90 @@ input{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+    align-items: center;
 }
 .eliminarEstudiante form input{
     width: 200px;
 }
 
+.buscarEstudiante form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: center;
+}
+.buscarEstudiante form input{
+    width: 200px;
+}
+
+
 .addel_Grupo{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.anadirClase form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: center;
+}
+.anadirClase form input{
+    width: 200px;
+}
+
+.zonaMostrarEstudiante{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.zonaMostrarEstudiante > :nth-child(odd){
+    background-color: #efefef;
+    border-radius: 10px;
+}
+
+.zonaMostrarEstudiante p,
+.zonaMostrarEstudiante ul{
+    padding: 1rem;
+}
+
+#mostrarClasesEstudiante{
+    list-style: none;
+}
+#mostrarClasesEstudiante li{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 20px;
+}
+
+.mostrarGrupo form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+.anadirGrupo form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+.eliminarGrupo form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.target{
+    background-color: #fff;
+    padding: 2rem;
+    padding-top: 3rem;
+    border-radius: 1rem;
+}
+
+.target hr{
+    margin: 1rem 0;
 }
