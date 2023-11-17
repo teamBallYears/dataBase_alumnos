@@ -1,5 +1,9 @@
 * [ ] ![1699596048905](image/README/1699596048905.png)
 
+Equipo
+Sait Uzziel Meza Sandoval
+Ayrton Rául Bolaños Waldo
+
 # Requisitos
 
 ### Crear un prototipo alumno, el cual debe incluir:
