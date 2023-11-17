@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: sans-serif;
+}
+
+button{
+    cursor: pointer;
+}
+button:hover{
+    background-color: #101010;
+}
+button:active{
+    background-color: #c85050;
+}
+
+body{
+    padding: 2rem 10rem;
+    background-color: #dfdfdf;
+}
+
+hr{
+    margin: 4rem 0;
+}
+
+section{
+    margin: 2rem 0;
+}
+
+button{
+    padding: 1rem;
+    background-color: #0c4d17;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+input,
+select{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #efefef;
+    width: 200px;
+}
+
+.anadirEstudiante form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: center;
+}
+
+.eliminarEstudiante form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: center;
+}
+
+.buscarEstudiante form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: center;
+}
+
+
+.addel_Grupo{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.anadirClase form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: center;
+}
+.anadirClase form input{
+    width: 200px;
+}
+
+.zonaMostrarEstudiante{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.zonaMostrarEstudiante > :nth-child(odd){
+    background-color: #efefef;
+    border-radius: 10px;
+}
+
+.zonaMostrarEstudiante p,
+.zonaMostrarEstudiante ul{
+    padding: 1rem;
+}
+
+#mostrarClasesEstudiante{
+    list-style: none;
+}
+#mostrarClasesEstudiante li{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 20px;
+}
+
+.mostrarGrupo form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+.anadirGrupo form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+.eliminarGrupo form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.target{
+    background-color: #fff;
+    padding: 2rem;
+    padding-top: 3rem;
+    border-radius: 1rem;
+}
+
+.target hr{
+    margin: 1rem 0;
+}
+
+#zonaMostrarGrupo{
+    width: 100%;
+}
+#zonaMostrarGrupo ul{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    list-style: none;
+}
+#zonaMostrarGrupo ul.header{
+    font-weight: bold;
+}
+#zonaMostrarGrupo ul li{
+    padding: 1rem 1rem;
+}
+#zonaMostrarGrupo > :nth-child(odd){
+    background-color: #efefef;
+}
+
+.item-header:hover{
+    background-color: #dfdfdf;
+    cursor: pointer;
+}

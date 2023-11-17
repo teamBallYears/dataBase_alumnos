@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style2.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="addel_Grupo">
+      <section class="anadirGrupo target">
+        <h2>Añadir Grupo</h2>
+        <hr />
+        <form action="" id="formAnadirGrupo">
+          <label for="nombreGrupo">Grupo</label>
+          <input type="text" id="nombreGrupo" /><br />
+        </form>
+        <button id="anadirGrupo">Añadir Grupo</button>
+        <p id="mensajeGrupoAnadido"></p>
+      </section>
+      <section class="eliminarGrupo target">
+        <h2>Eliminar Grupo</h2>
+        <hr />
+        <form action="" id="formEliminarGrupo">
+          <label for="eliminar_nombreGrupo">Grupo</label>
+          <select name="" id="eliminar_nombreGrupo"></select>
+        </form>
+        <button id="eliminarGrupo">Eliminar Grupo</button>
+        <p id="mensajeGrupoEliminado"></p>
+      </section>
+    </section>
+
+    <hr />
+
+    <section class="mostrarGrupo target">
+      <h2>Mostrar Grupo</h2>
+      <hr />
+      <form action="">
+        <label for="mostrar_nombreGrupo">Grupo</label>
+        <!-- <input type="text" id="mostrar_nombreGrupo"> -->
+        <select name="" id="mostrar_nombreGrupo"></select>
+      </form>
+
+      <button id="mostrarGrupo">Mostrar Grupo</button>
+      <p id="mensajeGrupoMostrado"></p>
+      <div id="zonaMostrarGrupo">
+        <ul class="header">
+          <li class="item-header" id="id_header">ID</li>
+          <li class="item-header" id="nombre_header">Nombre</li>
+          <li class="item-header" id="apellido_header">Apellido</li>
+          <li class="item-header" id="grupo_header">Grupo</li>
+          <li class="item-header" id="promedio_header">Promedio</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr />
+
+    <section class="anadirEstudiante target">
+      <h2>Añadir Estudiante</h2>
+      <hr />
+      <form action="" id="formAnadirEstudiante">
+        <label for="idEstudiante">ID</label>
+        <input type="text" id="idEstudiante" />
+        <label for="grupoEstudiante">Grupo</label>
+        <select name="" id="grupoEstudiante"></select>
+        <label for="nombreEstudiante">Nombre</label>
+        <input type="text" id="nombreEstudiante" />
+        <label for="apellidoEstudiante">Apellido</label>
+        <input type="text" id="apellidoEstudiante" />
+      </form>
+      <button id="anadirEstudiante">Añadir Estudiante</button>
+      <p id="mensajeAlumnoAnadido"></p>
+    </section>
+
+    <section class="eliminarEstudiante target">
+      <h2>Eliminar Estudiante</h2>
+      <hr />
+      <form action="">
+        <label for="eliminar_grupoEstudiante">Grupo</label>
+        <select name="" id="eliminar_grupoEstudiante"></select>
+        <label for="eliminar_idEstudiante">ID</label>
+        <select type="text" id="eliminar_idEstudiante"></select>
+      </form>
+      <button id="eliminarEstudiante">Eliminar Estudiante</button>
+      <p id="mensajeEstudianteEliminado"></p>
+    </section>
+
+    <section class="buscarEstudiante target">
+      <h2>Buscar Estudiante</h2>
+      <hr />
+      <form action="">
+        <label for="buscarGrupoEstudiante">Grupo</label>
+        <select name="" id="buscarGrupoEstudiante"></select>
+        <label for="buscarIdEstudiante">ID</label>
+        <select type="text" id="buscarIdEstudiante"></select>
+      </form>
+      <button id="buscarEstudiante">Buscar Estudiante</button>
+      <p id="mensajeEstudianteBuscado"></p>
+      <div class="zonaMostrarEstudiante">
+        <p>Id:</p>
+        <p id="mostrarIdEstudiante">null</p>
+        <p>Nombre:</p>
+        <p id="mostrarNombreEstudiante">null</p>
+        <p>Apellido:</p>
+        <p id="mostrarApellidoEstudiante">null</p>
+        <p>Grupo:</p>
+        <p id="mostrarGrupoEstudiante">null</p>
+        <p>Clases:</p>
+        <ul id="mostrarClasesEstudiante">
+          null
+        </ul>
+      </div>
+    </section>
+
+    <hr />
+
+    <section class="anadirClase target">
+      <h2>Añadir Clase a Estudiante</h2>
+      <hr />
+      <form action="">
+        <label for="grupoClase">Grupo:</label>
+        <select name="" id="grupoClase"></select>
+        <label for="idEstudianteClase">Estudiante ID</label>
+        <select type="text" id="idEstudianteClase"></select>
+        <label for="nombreClase">Clase</label>
+        <select type="text" id="nombreClase">
+          <option value="Español">Español</option>
+          <option value="Matemáticas">Matemáticas</option>
+          <option value="Ciencias Naturales">Ciencias Naturales</option>
+          <option value="Ciencias Sociales">Ciencias Sociales</option>
+          <option value="Inglés">Inglés</option>
+          <option value="Computación">Computación</option>
+          <option value="Historia">Historia</option>
+          <option value="Geografía">Geografía</option>
+          <option value="Artes">Artes</option>
+          <option value="Educación Física">Educación Física</option>
+        </select>
+        <label for="">Calificacion</label>
+        <input type="text" id="calificacionClase" />
+      </form>
+      <button id="anadirClase">Añadir Clase</button>
+      <p id="mensajeClaseAnadida"></p>
+    </section>
+    <script src="script2.js"></script>
+  </body>
+</html>
