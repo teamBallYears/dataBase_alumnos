@@ -159,3 +159,8 @@ select{
 #zonaMostrarGrupo > :nth-child(odd){
     background-color: #efefef;
 }
+
+.item-header:hover{
+    background-color: #dfdfdf;
+    cursor: pointer;
+}

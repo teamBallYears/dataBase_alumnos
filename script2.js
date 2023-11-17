@@ -67,25 +67,15 @@ class Escuela{
     mostrarGrupo(grupo){
         let zonaMostrarGrupo = document.getElementById("zonaMostrarGrupo");
         zonaMostrarGrupo.innerHTML = "";
-
-        /*
-        <ul class="row-table">+
-            <li>${estudiante.id}</li>
-            <li>${estudiante.nombre}</li>
-            <li>${estudiante.apellido}</li>
-            <li>${estudiante.grupo}</li>
-            <li>${estudiante.getPromedio()}</li>
-        </ul>
-        */
         
         let headerTable = document.createElement("ul");
         headerTable.setAttribute("class", "header");
         headerTable.innerHTML = `
-            <li>ID</li>
-            <li>Nombre</li>
-            <li>Apellido</li>
-            <li>Grupo</li>
-            <li>Promedio</li>
+            <li class="item-header" id="id_header">ID</li>
+            <li class="item-header" id="nombre_header">Nombre</li>
+            <li class="item-header" id="apellido_header">Apellido</li>
+            <li class="item-header" id="grupo_header">Grupo</li>
+            <li class="item-header" id="promedio_header">Promedio</li>
         `
         zonaMostrarGrupo.appendChild(headerTable);
 
@@ -103,14 +93,21 @@ class Escuela{
         })
     }
 
-    mostrarGrupoApellido(){
+    mostrarIDAsc(grupo){
+        let estudiantes = grupo.estudiantes;
+        let idMayor = 0;
+        let arregloDesplegable = [];
 
-    }
-    mostrarGrupoNombre(){
-
-    }
-    mostrarGrupoPromedio(){
-        
+        estudiantes.forEach(estudiante => {
+            let idEstudiante = estudiante.id;
+            
+            if(idEstudiante > idMayor){
+                arregloDesplegable.push(estudiante);
+                idMayor = idEstudiante;
+            } else {
+                
+            }
+        })
     }
 }
 
@@ -218,6 +215,9 @@ class Clase{
 
 const miEscuela = new Escuela("miEscuela");
 
+/* -------------------- BOTONES TARGETS -------------------- */
+
+/* Añadir Grupo */
 let btnAnadirGrupo = document.getElementById("anadirGrupo");
 btnAnadirGrupo.addEventListener("click", () => {
     let nombreGrupo = document.getElementById("nombreGrupo");
@@ -226,12 +226,29 @@ btnAnadirGrupo.addEventListener("click", () => {
     
 })
 
+/* Eliminar Grupo */
 let btnEliminarGrupo = document.getElementById("eliminarGrupo");
 btnEliminarGrupo.addEventListener("click", () => {
     let nombreGrupo = document.getElementById("eliminar_nombreGrupo").value;
     miEscuela.eliminarGrupo(nombreGrupo);
 })
 
+/* Mostrar Grupo */
+let btnMostrarGrupo = document.getElementById("mostrarGrupo");
+btnMostrarGrupo.addEventListener("click", () => {
+    let nombreGrupo = document.getElementById("mostrar_nombreGrupo").value;
+    
+    let zonaMostrarGrupo = document.getElementById("zonaMostrarGrupo");
+    zonaMostrarGrupo.innerHTML = "";
+
+    miEscuela.grupos.forEach(grupo => {
+        if(grupo.nombre == nombreGrupo){
+            miEscuela.mostrarGrupo(grupo);
+        }
+    })
+})
+
+/* Añadir Estudiante */
 let btnAnadirEstudiante = document.getElementById("anadirEstudiante");
 btnAnadirEstudiante.addEventListener("click", () => {
 
@@ -252,6 +269,7 @@ btnAnadirEstudiante.addEventListener("click", () => {
     apellidoEstudiante.value = "";
 })
 
+/* Eliminar Estudiante */
 let btnEliminarEstudiante = document.getElementById("eliminarEstudiante");
 btnEliminarEstudiante.addEventListener("click", () => {
     let grupoEstudiante = document.getElementById("eliminar_grupoEstudiante").value;
@@ -264,6 +282,7 @@ btnEliminarEstudiante.addEventListener("click", () => {
     })
 })
 
+/* Buscar Estudiante */
 let btnBuscarEstudiante = document.getElementById("buscarEstudiante");
 btnBuscarEstudiante.addEventListener("click", () => {
     let grupoEstudiante = document.getElementById("buscarGrupoEstudiante").value;
@@ -282,20 +301,7 @@ btnBuscarEstudiante.addEventListener("click", () => {
     });
 })
 
-let btnMostrarGrupo = document.getElementById("mostrarGrupo");
-btnMostrarGrupo.addEventListener("click", () => {
-    let nombreGrupo = document.getElementById("mostrar_nombreGrupo").value;
-    
-    let zonaMostrarGrupo = document.getElementById("zonaMostrarGrupo");
-    zonaMostrarGrupo.innerHTML = "";
-
-    miEscuela.grupos.forEach(grupo => {
-        if(grupo.nombre == nombreGrupo){
-            miEscuela.mostrarGrupo(grupo);
-        }
-    })
-})
-
+/* Añadir Clase */
 let btnAnadirClase = document.getElementById("anadirClase");
 btnAnadirClase.addEventListener("click", () => {
     let grupoClase = document.getElementById("grupoClase").value;
@@ -314,6 +320,10 @@ btnAnadirClase.addEventListener("click", () => {
     })
 })
 
+/* -------------------- ACTUALIZAR OPTIONS -------------------- */
+
+
+/* Actualizar Options Estudiantes */
 let selectGrupoClase = document.getElementById("grupoClase");
 selectGrupoClase.addEventListener("change", () => {
     let grupoSeleccionado = document.getElementById("grupoClase").value;
@@ -326,6 +336,7 @@ selectGrupoClase.addEventListener("change", () => {
     })
 })
 
+/* Actualizar Options Estudiantes */
 let buscarGrupoEstudiante = document.getElementById("buscarGrupoEstudiante");
 buscarGrupoEstudiante.addEventListener("change", () => {
     let grupoSeleccionado = document.getElementById("buscarGrupoEstudiante").value;
@@ -338,6 +349,7 @@ buscarGrupoEstudiante.addEventListener("change", () => {
     })
 })
 
+/* Actualizar Options Estudiantes */
 let eliminar_grupoEstudiante = document.getElementById("eliminar_grupoEstudiante");
 eliminar_grupoEstudiante.addEventListener("change", () => {
     let grupoSeleccionado = document.getElementById("eliminar_grupoEstudiante").value;
@@ -346,6 +358,19 @@ eliminar_grupoEstudiante.addEventListener("change", () => {
     miEscuela.grupos.forEach(grupo => {
         if(grupo.nombre == grupoSeleccionado){
             grupo.actualizarListasEstudiantes(selectActualizable);
+        }
+    })
+})
+
+ 
+/* -------------------- BOTONES TABLA -------------------- */
+
+let btnIdHeader = document.getElementById("id_header");
+btnIdHeader.addEventListener("click", () => {
+    let grupoActual = document.getElementById("mostrar_nombreGrupo").value;
+    miEscuela.grupos.forEach(grupo => {
+        if(grupo.nombre == grupoActual){
+            miEscuela.mostrarIDAsc(grupo);
         }
     })
 })
